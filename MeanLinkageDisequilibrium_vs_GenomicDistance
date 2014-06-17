@@ -1,0 +1,290 @@
+##########################################################################################
+#1#qSLB_2_36928000_13001##################################################################
+##########################################################################################
+LOCI <- read.delim("Path/qSLB_2_36928000_13001.txt")
+LOCI$bins<-cut(LOCI$Dist_bp, breaks=seq(0,500000,100), labels=seq(100,500000,100))
+library(plyr)
+out_put=ddply(LOCI, .(bins), summarize, mean_y=mean(na.omit(R.2)))
+
+#convert the bins in out_put dataframe to numeric
+out_put$bins<-as.numeric(out_put$bins)
+#Conver missing values in out_put to 0
+#out_put[is.na(out_put)] <- 0  
+#is.numeric(out_put$bins)
+
+# remove rows with na
+out_put = out_put[complete.cases(out_put),]
+
+#plot LD vs distance_bp
+library(ggplot2)
+
+p1 <-
+  ggplot(data=out_put, aes(x=bins, y=mean_y)) + geom_line(lwd=.75)+
+  theme_bw() +
+  theme(axis.line = element_line(colour = "black"),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.background = element_blank(),
+        plot.title = element_text(face="bold", size=10), 
+        axis.title.x = element_text(face="bold", size=11),
+        axis.title.y = element_text(face="bold", size=14, angle=90),
+        axis.text.x = element_text(face="bold", size=12),
+        axis.text.y = element_text(face="bold", size=12)
+  )+ scale_y_continuous(limits=c(0,1))+
+  xlab("Distance (x 100 bp)") +labs(title="qSLB_2_36928000_13001")+
+  ylab(expression(paste(
+    " ",R^2,
+    "", sep="")))
+
+##########################################################################################
+#2qSLB_3_33490000_24001###################################################################
+##########################################################################################
+LOCI<- read.delim("Path/qSLB_3_33490000_24001.txt")
+LOCI$bins<-cut(LOCI$Dist_bp, breaks=seq(0,500000,100), labels=seq(100,500000,100))
+library(plyr)
+out_put=ddply(LOCI, .(bins), summarize, mean_y=mean(na.omit(R.2)))
+
+#convert the bins in out_put dataframe to numeric
+out_put$bins<-as.numeric(out_put$bins)
+is.numeric(out_put$bins)
+
+# remove rows with na
+out_put = out_put[complete.cases(out_put),]
+
+#plot LD vs distance_bp
+library(ggplot2)
+p2 <-
+  ggplot(data=out_put, aes(x=bins, y=mean_y)) + geom_line(lwd=.75)+
+  theme_bw() +
+  theme(axis.line = element_line(colour = "black"),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.background = element_blank(),
+        plot.title = element_text(face="bold", size=10), 
+        axis.title.x = element_text(face="bold", size=11),
+        axis.title.y = element_text(face="bold", size=14, angle=90),
+        axis.text.x = element_text(face="bold", size=12),
+        axis.text.y = element_text(face="bold", size=12)
+  )+ scale_y_continuous(limits=c(0,1))+
+  xlab("Distance (x 100 bp)") +labs(title="qSLB_3_33490000_24001")+
+  ylab(expression(paste(
+    " ",R^2,
+    "", sep="")))
+
+##########################################################################################
+#3qSLB_3_219833000_72001##################################################################
+##########################################################################################
+LOCI<- read.delim("Path/qSLB_3_219833000_72001.txt")
+LOCI$bins<-cut(LOCI$Dist_bp, breaks=seq(0,500000,100), labels=seq(100,500000,100))
+library(plyr)
+out_put=ddply(LOCI, .(bins), summarize, mean_y=mean(na.omit(R.2)))
+
+#convert the bins in out_put dataframe to numeric
+out_put$bins<-as.numeric(out_put$bins)
+is.numeric(out_put$bins)
+
+# remove rows with na
+out_put = out_put[complete.cases(out_put),]
+
+#plot LD vs distance_bp
+library(ggplot2)
+p3 <-
+  ggplot(data=out_put, aes(x=bins, y=mean_y)) + geom_line(lwd=.75)+
+  theme_bw() +
+  theme(axis.line = element_line(colour = "black"),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.background = element_blank(),
+        plot.title = element_text(face="bold", size=10), 
+        axis.title.x = element_text(face="bold", size=11),
+        axis.title.y = element_text(face="bold", size=14, angle=90),
+        axis.text.x = element_text(face="bold", size=12),
+        axis.text.y = element_text(face="bold", size=12)
+  )+ scale_y_continuous(limits=c(0,1))+
+  xlab("Distance (x 100 bp)") +labs(title="qSLB_3_219833000_72001")+
+  ylab(expression(paste(
+    " ",R^2,
+    "", sep="")))
+
+##########################################################################################
+#4qSLB_6_7000000_135001###################################################################
+##########################################################################################
+LOCI<- read.delim("Path/qSLB_6_7000000_135001.txt")
+LOCI$bins<-cut(LOCI$Dist_bp, breaks=seq(0,500000,100), labels=seq(100,500000,100))
+library(plyr)
+out_put=ddply(LOCI, .(bins), summarize, mean_y=mean(na.omit(R.2)))
+
+#convert the bins in out_put dataframe to numeric
+out_put$bins<-as.numeric(out_put$bins)
+is.numeric(out_put$bins)
+
+# remove rows with na
+out_put = out_put[complete.cases(out_put),]
+
+#plot LD vs distance_bp
+library(ggplot2)
+p4 <-
+  ggplot(data=out_put, aes(x=bins, y=mean_y)) + geom_line(lwd=.75)+
+  theme_bw() +
+  theme(axis.line = element_line(colour = "black"),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.background = element_blank(),
+        plot.title = element_text(face="bold", size=10), 
+        axis.title.x = element_text(face="bold", size=11),
+        axis.title.y = element_text(face="bold", size=14, angle=90),
+        axis.text.x = element_text(face="bold", size=12),
+        axis.text.y = element_text(face="bold", size=12)
+  )+ scale_y_continuous(limits=c(0,1))+
+  xlab("Distance (x 100 bp)") +labs(title="qSLB_6_7000000_135001")+
+  ylab(expression(paste(
+    " ",R^2,
+    "", sep="")))
+
+##########################################################################################
+#5qMDR_7_128353590_51043##################################################################
+##########################################################################################
+LOCI<- read.delim("Path/qMDR_7_128353590_51043.txt")
+LOCI$bins<-cut(LOCI$Dist_bp, breaks=seq(0,500000,100), labels=seq(100,500000,100))
+library(plyr)
+out_put=ddply(LOCI, .(bins), summarize, mean_y=mean(na.omit(R.2)))
+
+#convert the bins in out_put dataframe to numeric
+out_put$bins<-as.numeric(out_put$bins)
+is.numeric(out_put$bins)
+
+# remove rows with na
+out_put = out_put[complete.cases(out_put),]
+
+#plot LD vs distance_bp
+library(ggplot2)
+p5 <-
+ggplot(data=out_put, aes(x=bins, y=mean_y)) + geom_line(lwd=.75)+
+  theme_bw() +
+  theme(axis.line = element_line(colour = "black"),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.background = element_blank(),
+        plot.title = element_text(face="bold", size=10), 
+        axis.title.x = element_text(face="bold", size=11),
+        axis.title.y = element_text(face="bold", size=14, angle=90),
+        axis.text.x = element_text(face="bold", size=12),
+        axis.text.y = element_text(face="bold", size=12)
+  )+ scale_y_continuous(limits=c(0,1))+
+  xlab("Distance (x 100 bp)") +labs(title="qMDR_7_128353590_51043")+
+  ylab(expression(paste(
+    " ",R^2,
+    "", sep="")))
+
+##########################################################################################
+#6qSLB_9_16200311_302962##################################################################
+##########################################################################################
+LOCI<- read.delim("Path/qSLB_9_16200311_302962.txt")
+LOCI$bins<-cut(LOCI$Dist_bp, breaks=seq(0,500000,100), labels=seq(100,500000,100))
+library(plyr)
+out_put=ddply(LOCI, .(bins), summarize, mean_y=mean(na.omit(R.2)))
+
+#convert the bins in out_put dataframe to numeric
+out_put$bins<-as.numeric(out_put$bins)
+is.numeric(out_put$bins)
+
+# remove rows with na
+out_put = out_put[complete.cases(out_put),]
+
+#plot LD vs distance_bp
+library(ggplot2)
+p6 <-
+  ggplot(data=out_put, aes(x=bins, y=mean_y)) + geom_line(lwd=.75)+
+  theme_bw() +
+  theme(axis.line = element_line(colour = "black"),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.background = element_blank(),
+        plot.title = element_text(face="bold", size=10), 
+        axis.title.x = element_text(face="bold", size=11),
+        axis.title.y = element_text(face="bold", size=14, angle=90),
+        axis.text.x = element_text(face="bold", size=12),
+        axis.text.y = element_text(face="bold", size=12)
+  )+ scale_y_continuous(limits=c(0,1))+
+  xlab("Distance (x 100 bp)") +labs(title="qSLB_9_16200311_302962")+
+  ylab(expression(paste(
+    " ",R^2,
+    "", sep="")))
+##########################################################################################
+#7qNLB_1_25377803_22184##################################################################
+##########################################################################################
+LOCI<- read.delim("Path/qNLB_1_25377803_22184.txt")
+LOCI$bins<-cut(LOCI$Dist_bp, breaks=seq(0,500000,100), labels=seq(100,500000,100))
+library(plyr)
+out_put=ddply(LOCI, .(bins), summarize, mean_y=mean(na.omit(R.2)))
+
+#convert the bins in out_put dataframe to numeric
+out_put$bins<-as.numeric(out_put$bins)
+is.numeric(out_put$bins)
+
+# remove rows with na
+out_put = out_put[complete.cases(out_put),]
+
+#plot LD vs distance_bp
+library(ggplot2)
+p7 <-
+  ggplot(data=out_put, aes(x=bins, y=mean_y)) + geom_line(lwd=.75)+
+  theme_bw() +
+  theme(axis.line = element_line(colour = "black"),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.background = element_blank(),
+        plot.title = element_text(face="bold", size=10), 
+        axis.title.x = element_text(face="bold", size=11),
+        axis.title.y = element_text(face="bold", size=14, angle=90),
+        axis.text.x = element_text(face="bold", size=12),
+        axis.text.y = element_text(face="bold", size=12)
+  )+ scale_y_continuous(limits=c(0,1))+
+  xlab("Distance (x 100 bp)") +labs(title="qNLB_1_25377803_22184")+
+  ylab(expression(paste(
+    " ",R^2,
+    "", sep="")))
+
+##########################################################################################
+#8qNLB_1_187245104_197947##################################################################
+##########################################################################################
+LOCI<- read.delim("Path/qNLB_1_187245104_197947.txt")
+LOCI$bins<-cut(LOCI$Dist_bp, breaks=seq(0,500000,100), labels=seq(100,500000,100))
+library(plyr)
+out_put=ddply(LOCI, .(bins), summarize, mean_y=mean(na.omit(R.2)))
+
+#convert the bins in out_put dataframe to numeric
+out_put$bins<-as.numeric(out_put$bins)
+is.numeric(out_put$bins)
+
+# remove rows with na
+out_put = out_put[complete.cases(out_put),]
+
+#plot LD vs distance_bp
+library(ggplot2)
+p8 <-
+  ggplot(data=out_put, aes(x=bins, y=mean_y)) + geom_line(lwd=.75)+
+  theme_bw() +
+  theme(axis.line = element_line(colour = "black"),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.background = element_blank(),
+        plot.title = element_text(face="bold", size=10), 
+        axis.title.x = element_text(face="bold", size=11),
+        axis.title.y = element_text(face="bold", size=14, angle=90),
+        axis.text.x = element_text(face="bold", size=12),
+        axis.text.y = element_text(face="bold", size=12)
+  )+ scale_y_continuous(limits=c(0,1))+
+  xlab("Distance (x 100 bp)") +labs(title="qNLB_1_187245104_197947")+
+  ylab(expression(paste(
+    " ",R^2,
+    "", sep="")))
+##########################################################################################
+##PLOT ALL################################################################################
+##########################################################################################
+
+#install.packages("gridExtra")    
+library(gridExtra)
+
+grid.arrange(p1, p2, p3,p4, p5,p6,p7,p8, ncol=2,main = "LD vs Distance")+
+  theme(plot.title = element_text(face="bold", size=26))
